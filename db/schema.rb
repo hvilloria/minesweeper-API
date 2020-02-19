@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_19_195923) do
+ActiveRecord::Schema.define(version: 2020_02_19_204853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2020_02_19_195923) do
 
   create_table "games", force: :cascade do |t|
     t.date "time"
-    t.integer "clicks"
+    t.integer "clicks", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_02_19_195923) do
     t.bigint "board_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "kind", default: "safe_cell"
     t.index ["board_id"], name: "index_squares_on_board_id"
   end
 
